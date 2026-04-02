@@ -1,0 +1,268 @@
+{{ 'featured-collection-1.css' | asset_url | stylesheet_tag }}
+
+{% liquid
+  assign collection = section.settings.collection
+  assign products_to_show = section.settings.products_to_show
+  assign columns = section.settings.columns_desktop
+%}
+
+<div
+  class="featured-collection-1 color-{{ section.settings.color_scheme }}"
+  style="
+    --fc1-padding-top: {{ section.settings.padding_top }}px;
+    --fc1-padding-bottom: {{ section.settings.padding_bottom }}px;
+    --fc1-columns: {{ columns }};
+    --fc1-gap: {{ section.settings.gap }}px;
+    --fc1-badge-color: {{ section.settings.badge_color }};
+  "
+>
+  <div class="featured-collection-1__container section--{{ section.settings.section_width }}">
+    {% if section.settings.heading != blank or section.settings.subheading != blank %}
+      <div class="featured-collection-1__header">
+        {% if section.settings.heading != blank %}
+          <h2 class="featured-collection-1__heading">{{ section.settings.heading }}</h2>
+        {% endif %}
+        {% if section.settings.subheading != blank %}
+          <p class="featured-collection-1__subheading">{{ section.settings.subheading }}</p>
+        {% endif %}
+      </div>
+    {% endif %}
+
+    <div class="featured-collection-1__grid">
+      {% if collection != blank and collection.products.size > 0 %}
+        {% for product in collection.products limit: products_to_show %}
+          {% assign selected_variant = product.selected_or_first_available_variant %}
+          {% assign compare_at_price = selected_variant.compare_at_price %}
+          {% assign price = selected_variant.price %}
+
+          {% assign on_sale = false %}
+          {% if compare_at_price > price %}
+            {% assign on_sale = true %}
+            {% assign save_amount = compare_at_price | minus: price %}
+            {% assign save_percent = save_amount | times: 100.0 | divided_by: compare_at_price | round %}
+          {% endif %}
+
+          <div class="fc1-card">
+            <a href="{{ product.url }}" class="fc1-card__link">
+              <div class="fc1-card__image-wrapper">
+                {% if product.featured_image != blank %}
+                  {{
+                    product.featured_image
+                    | image_url: width: 800
+                    | image_tag:
+                      class: 'fc1-card__image',
+                      loading: 'lazy',
+                      widths: '400,600,800',
+                      sizes: '(max-width: 749px) 50vw, 25vw'
+                  }}
+                {% else %}
+                  {{ 'product-' | append: forloop.index | placeholder_svg_tag: 'fc1-card__placeholder' }}
+                {% endif %}
+
+                {% if on_sale and section.settings.show_sale_badge %}
+                  <span class="fc1-card__badge">
+                    {{ save_percent }}% OFF
+                  </span>
+                {% endif %}
+              </div>
+
+              <div class="fc1-card__info">
+                <h3 class="fc1-card__title">{{ product.title }}</h3>
+
+                {% if section.settings.show_product_type and product.type != blank %}
+                  <p class="fc1-card__type">{{ product.type }}</p>
+                {% endif %}
+
+                <div class="fc1-card__price">
+                  {% if on_sale %}
+                    <span class="fc1-card__compare-price">{{ compare_at_price | money }}</span>
+                    <span class="fc1-card__sale-price">{{ price | money }}</span>
+                  {% else %}
+                    <span class="fc1-card__regular-price">{{ price | money }}</span>
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+          </div>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..products_to_show) %}
+          <div class="fc1-card">
+            <div class="fc1-card__link">
+              <div class="fc1-card__image-wrapper">
+                {{ 'product-' | append: i | placeholder_svg_tag: 'fc1-card__placeholder' }}
+                <span class="fc1-card__badge">20% OFF</span>
+              </div>
+              <div class="fc1-card__info">
+                <h3 class="fc1-card__title">Sample Product Title</h3>
+                <p class="fc1-card__type">Unstitched</p>
+                <div class="fc1-card__price">
+                  <span class="fc1-card__compare-price">Rs.4,290</span>
+                  <span class="fc1-card__sale-price">Rs.3,432</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+
+    {% if section.settings.show_view_all and collection != blank %}
+      <div class="featured-collection-1__view-all">
+        <a href="{{ collection.url }}" class="fc1-view-all-btn">
+          {{ section.settings.view_all_text | default: 'View All' }}
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" width="18" height="18">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Featured Collection 1",
+  "class": "featured-collection-1-wrapper",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "header",
+      "content": "Products"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to show",
+      "min": 2,
+      "max": 12,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "label": "Columns on desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap between cards",
+      "min": 0,
+      "max": 40,
+      "step": 2,
+      "unit": "px",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Card settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sale_badge",
+      "label": "Show sale badge",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_product_type",
+      "label": "Show product type",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "badge_color",
+      "label": "Sale badge color",
+      "default": "#8B1A2B"
+    },
+    {
+      "type": "header",
+      "content": "View all button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show view all button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "Button text",
+      "default": "View All"
+    },
+    {
+      "type": "header",
+      "content": "Section layout"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "Width",
+      "options": [
+        { "value": "page-width", "label": "Page width" },
+        { "value": "full-width", "label": "Full width" }
+      ],
+      "default": "page-width"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "default": 40
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Collection 1",
+      "category": "Collections"
+    }
+  ]
+}
+{% endschema %}
