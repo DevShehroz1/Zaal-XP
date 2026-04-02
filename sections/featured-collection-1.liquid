@@ -64,6 +64,22 @@
                     {{ save_percent }}% OFF
                   </span>
                 {% endif %}
+
+                <div class="fc1-card__hover-actions">
+                  <button
+                    type="button"
+                    class="fc1-card__add-to-bag"
+                    data-variant-id="{{ selected_variant.id }}"
+                    {% unless product.available %}disabled{% endunless %}
+                  >
+                    {% if product.available %}ADD TO BAG{% else %}SOLD OUT{% endif %}
+                  </button>
+                  <button type="button" class="fc1-card__wishlist" aria-label="Add to wishlist">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="20" height="20">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
 
               <div class="fc1-card__info">
@@ -92,6 +108,14 @@
               <div class="fc1-card__image-wrapper">
                 {{ 'product-' | append: i | placeholder_svg_tag: 'fc1-card__placeholder' }}
                 <span class="fc1-card__badge">20% OFF</span>
+                <div class="fc1-card__hover-actions">
+                  <button type="button" class="fc1-card__add-to-bag">ADD TO BAG</button>
+                  <button type="button" class="fc1-card__wishlist" aria-label="Add to wishlist">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" width="20" height="20">
+                      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
               </div>
               <div class="fc1-card__info">
                 <h3 class="fc1-card__title">Sample Product Title</h3>
@@ -119,6 +143,39 @@
     {% endif %}
   </div>
 </div>
+
+<script>
+  document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.fc1-card__add-to-bag');
+    if (!btn || btn.disabled) return;
+    e.preventDefault();
+    e.stopPropagation();
+
+    const variantId = btn.getAttribute('data-variant-id');
+    if (!variantId) return;
+
+    btn.textContent = 'ADDING...';
+    btn.disabled = true;
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ id: parseInt(variantId), quantity: 1 }] })
+    })
+    .then(function(res) { return res.json(); })
+    .then(function() {
+      btn.textContent = 'ADDED!';
+      setTimeout(function() {
+        btn.textContent = 'ADD TO BAG';
+        btn.disabled = false;
+      }, 1500);
+    })
+    .catch(function() {
+      btn.textContent = 'ADD TO BAG';
+      btn.disabled = false;
+    });
+  });
+</script>
 
 {% schema %}
 {
