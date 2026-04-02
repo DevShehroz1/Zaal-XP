@@ -243,21 +243,15 @@
               },
               "blocks": {}
             },
-            "whatsapp_btn": {
-              "type": "whatsapp-button",
+            "description_divider": {
+              "type": "_divider",
+              "name": "t:names.divider",
               "settings": {
-                "whatsapp_url": "https://api.whatsapp.com/send/?phone=923179573888&text=Hi&type=phone_number&app_absent=0",
-                "button_text": "WhatsApp Us"
-              },
-              "blocks": {}
-            },
-            "trust_icons": {
-              "type": "trust-icons",
-              "settings": {
-                "icon_1_label": "Secure Ordering",
-                "icon_2_label": "Fast Shipping",
-                "icon_3_label": "Premium Quality",
-                "icon_4_label": "Easy Returns"
+                "thickness": 1,
+                "corner_radius": "square",
+                "width_percent": 100,
+                "padding-block-start": 0,
+                "padding-block-end": 0
               },
               "blocks": {}
             }
@@ -267,9 +261,8 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
-            "whatsapp_btn",
-            "trust_icons",
-            "text_aEtTtq"
+            "text_aEtTtq",
+            "description_divider"
           ]
         }
       },
@@ -424,44 +417,10 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
-    },
-    "product_tabs": {
-      "type": "product-tabs",
-      "settings": {
-        "show_description": true,
-        "description_heading": "Description",
-        "padding_top": 24,
-        "padding_bottom": 40
-      },
-      "blocks": {
-        "tab_material": {
-          "type": "tab",
-          "settings": {
-            "heading": "Material & Fit",
-            "content": "<p>Add your content here.</p>"
-          }
-        },
-        "tab_design": {
-          "type": "tab",
-          "settings": {
-            "heading": "Design Philosophy",
-            "content": "<p>Add your content here.</p>"
-          }
-        },
-        "tab_care": {
-          "type": "tab",
-          "settings": {
-            "heading": "Care Instruction",
-            "content": "<p>Add your content here.</p>"
-          }
-        }
-      },
-      "block_order": ["tab_material", "tab_design", "tab_care"]
     }
   },
   "order": [
     "main",
-    "product_tabs",
     "product_recommendations_qggXJq"
   ]
 }
