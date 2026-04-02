@@ -1,34 +1,6 @@
-/* Extras wrapper - position in product grid */
-.product-extras-wrapper {
-  order: 2;
-  align-self: start;
-  padding: 0;
-}
-
-@media screen and (min-width: 750px) {
-  .product-information--media-left .product-extras-wrapper {
-    grid-column: 2;
-    padding-left: calc(var(--gap, 0) / 2);
-  }
-
-  .product-information--media-right .product-extras-wrapper {
-    grid-column: 1;
-    padding-right: calc(var(--gap, 0) / 2);
-  }
-
-  .product-information__grid--half.product-information--media-left .product-extras-wrapper {
-    grid-column: 3 / 4;
-  }
-
-  .product-information__grid--half.product-information--media-right .product-extras-wrapper {
-    grid-column: 2 / 3;
-  }
-}
-
-@media screen and (max-width: 749px) {
-  .product-extras-wrapper {
-    grid-column: 2 / 3;
-  }
+/* Injected extras inside product details */
+.product-extras-injected {
+  width: 100%;
 }
 
 /* WhatsApp Button */
