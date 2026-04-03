@@ -214,37 +214,28 @@
   document.addEventListener('DOMContentLoaded', function() {
     var tmpl = document.getElementById('product-extras-template');
     if (!tmpl) return;
+    var clone = tmpl.content.cloneNode(true);
 
-    // Find the buy-buttons block inside product details
-    var buyBtns = document.querySelector('.product-details buy-buttons, .product-details [data-block-type="buy-buttons"], .product-details .shopify-block:has(.add-to-cart-button)');
+    // Try exact class from buy-buttons.liquid
+    var target = document.querySelector('.product-details .buy-buttons-block');
 
-    // Fallback: find accelerated checkout or the add-to-cart form
-    if (!buyBtns) {
-      buyBtns = document.querySelector('.product-details shopify-accelerated-checkout, .product-details shopify-buy-buttons, .product-details form[action*="/cart/add"]');
-    }
+    // Fallback: product-form-component
+    if (!target) target = document.querySelector('.product-details product-form-component');
 
-    // Fallback: find any element that contains "Buy it now" or "Add to cart" button
-    if (!buyBtns) {
-      var allBtns = document.querySelectorAll('.product-details .button, .product-details button');
-      for (var i = 0; i < allBtns.length; i++) {
-        var txt = allBtns[i].textContent.toLowerCase().trim();
-        if (txt.indexOf('buy') > -1 || txt.indexOf('add to cart') > -1) {
-          buyBtns = allBtns[i].closest('[class*="block"], [data-shopify-editor-block]') || allBtns[i].parentElement.parentElement.parentElement;
-          break;
-        }
-      }
-    }
+    // Fallback: the form itself
+    if (!target) target = document.querySelector('.product-details form[data-type="add-to-cart-form"]');
 
-    if (buyBtns) {
-      var clone = tmpl.content.cloneNode(true);
-      buyBtns.after(clone);
+    // Fallback: product-form-buttons
+    if (!target) target = document.querySelector('.product-details .product-form-buttons');
+
+    if (target) {
+      // Insert after the buy-buttons-block parent span
+      var parent = target.closest('.buy-buttons-block') || target;
+      parent.parentNode.insertBefore(clone, parent.nextSibling);
     } else {
-      // Last fallback: append to end of product details
+      // Last fallback: append to product details group
       var details = document.querySelector('.product-details .group-block');
-      if (details) {
-        var clone = tmpl.content.cloneNode(true);
-        details.appendChild(clone);
-      }
+      if (details) details.appendChild(clone);
     }
   });
 </script>
