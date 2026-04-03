@@ -269,37 +269,6 @@
           ]
         }
       },
-      "blocks": {
-        "tab_material": {
-          "type": "product-tab",
-          "settings": {
-            "tab_heading": "Material & Fit",
-            "tab_content": "<p>Add material and fit details here.</p>"
-          }
-        },
-        "tab_design": {
-          "type": "product-tab",
-          "settings": {
-            "tab_heading": "Design Philosophy",
-            "tab_content": "<p>Add design philosophy details here.</p>"
-          }
-        },
-        "tab_poetry": {
-          "type": "product-tab",
-          "settings": {
-            "tab_heading": "Poetry",
-            "tab_content": "<p>Add poetry details here.</p>"
-          }
-        },
-        "tab_care": {
-          "type": "product-tab",
-          "settings": {
-            "tab_heading": "Care Instruction",
-            "tab_content": "<p>Add care instructions here.</p>"
-          }
-        }
-      },
-      "block_order": ["tab_material", "tab_design", "tab_poetry", "tab_care"],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
