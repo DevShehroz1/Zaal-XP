@@ -423,10 +423,51 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "product_tabs_section": {
+      "type": "product-tabs",
+      "blocks": {
+        "tab_material": {
+          "type": "tab",
+          "settings": {
+            "heading": "Material & Fit",
+            "content": "<p>Add material and fit details here.</p>"
+          }
+        },
+        "tab_design": {
+          "type": "tab",
+          "settings": {
+            "heading": "Design Philosophy",
+            "content": "<p>Add design philosophy details here.</p>"
+          }
+        },
+        "tab_poetry": {
+          "type": "tab",
+          "settings": {
+            "heading": "Poetry",
+            "content": "<p>Add poetry details here.</p>"
+          }
+        },
+        "tab_care": {
+          "type": "tab",
+          "settings": {
+            "heading": "Care Instruction",
+            "content": "<p>Add care instructions here.</p>"
+          }
+        }
+      },
+      "block_order": ["tab_material", "tab_design", "tab_poetry", "tab_care"],
+      "settings": {
+        "show_description": true,
+        "description_heading": "Description",
+        "padding_top": 24,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
     "main",
+    "product_tabs_section",
     "product_recommendations_qggXJq"
   ]
 }
