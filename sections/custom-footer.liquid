@@ -1,0 +1,248 @@
+<style>
+  .zaal-footer { border-top: 1px solid #e0e0e0; padding: 48px 0 0; font-family: var(--font-body--family, sans-serif); }
+  .zaal-footer__inner { max-width: var(--page-width, 1400px); margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 40px; }
+  .zaal-footer__col-title { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 20px; color: var(--color-foreground, #1a1a1a); }
+  .zaal-footer__links { list-style: none; padding: 0; margin: 0; }
+  .zaal-footer__links li { margin-bottom: 10px; }
+  .zaal-footer__links a { text-decoration: none; color: var(--color-foreground, #1a1a1a); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; transition: opacity 0.2s; }
+  .zaal-footer__links a:hover { opacity: 0.6; }
+  .zaal-footer__contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 13px; color: var(--color-foreground, #1a1a1a); }
+  .zaal-footer__contact-item svg { flex-shrink: 0; }
+  .zaal-footer__contact-item a { text-decoration: none; color: inherit; }
+  .zaal-footer__newsletter-text { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 18px; color: var(--color-foreground, #1a1a1a); line-height: 1.5; }
+  .zaal-footer__form { display: flex; border: 1px solid #1a1a1a; overflow: hidden; }
+  .zaal-footer__input { flex: 1; border: none; padding: 12px 16px; font-size: 13px; font-family: inherit; outline: none; background: transparent; color: var(--color-foreground, #1a1a1a); }
+  .zaal-footer__input::placeholder { color: #999; }
+  .zaal-footer__submit { background: #1a1a1a; color: #fff; border: none; padding: 12px 24px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+  .zaal-footer__submit:hover { background: #333; }
+  .zaal-footer__social { display: flex; gap: 16px; margin-top: 20px; }
+  .zaal-footer__social a { color: var(--color-foreground, #1a1a1a); transition: opacity 0.2s; }
+  .zaal-footer__social a:hover { opacity: 0.6; }
+  .zaal-footer__bottom { max-width: var(--page-width, 1400px); margin: 0 auto; padding: 24px 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e0e0e0; margin-top: 40px; }
+  .zaal-footer__copyright { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-foreground, #555); }
+  .zaal-footer__payments { display: flex; gap: 8px; align-items: center; }
+  @media (max-width: 749px) {
+    .zaal-footer__inner { grid-template-columns: 1fr; gap: 32px; }
+    .zaal-footer__bottom { flex-direction: column; gap: 16px; text-align: center; }
+  }
+  @media (min-width: 750px) and (max-width: 989px) {
+    .zaal-footer__inner { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+
+<footer class="zaal-footer">
+  <div class="zaal-footer__inner">
+    <div>
+      <h4 class="zaal-footer__col-title">{{ section.settings.col1_title }}</h4>
+      <div class="zaal-footer__contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        <a href="mailto:{{ section.settings.email }}">{{ section.settings.email }}</a>
+      </div>
+      <div class="zaal-footer__contact-item">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <a href="tel:{{ section.settings.phone | replace: ' ', '' }}">{{ section.settings.phone }}</a>
+      </div>
+    </div>
+
+    <div>
+      <h4 class="zaal-footer__col-title">{{ section.settings.col2_title }}</h4>
+      <ul class="zaal-footer__links">
+        {% for block in section.blocks %}
+          {% if block.type == 'col2_link' %}
+            <li><a href="{{ block.settings.url }}">{{ block.settings.label }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="zaal-footer__col-title">{{ section.settings.col3_title }}</h4>
+      <ul class="zaal-footer__links">
+        {% for block in section.blocks %}
+          {% if block.type == 'col3_link' %}
+            <li><a href="{{ block.settings.url }}">{{ block.settings.label }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div>
+      <h4 class="zaal-footer__col-title">{{ section.settings.col4_title }}</h4>
+      <p class="zaal-footer__newsletter-text">{{ section.settings.newsletter_text }}</p>
+      {%- form 'customer', id: 'FooterNewsletter' -%}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="zaal-footer__form">
+          <input class="zaal-footer__input" type="email" name="contact[email]" placeholder="Your email address" required>
+          <button class="zaal-footer__submit" type="submit">Subscribe</button>
+        </div>
+      {%- endform -%}
+      <div class="zaal-footer__social">
+        {% if section.settings.facebook_url != blank %}<a href="{{ section.settings.facebook_url }}" target="_blank" aria-label="Facebook"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>{% endif %}
+        {% if section.settings.instagram_url != blank %}<a href="{{ section.settings.instagram_url }}" target="_blank" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>{% endif %}
+        {% if section.settings.youtube_url != blank %}<a href="{{ section.settings.youtube_url }}" target="_blank" aria-label="YouTube"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg></a>{% endif %}
+        {% if section.settings.tiktok_url != blank %}<a href="{{ section.settings.tiktok_url }}" target="_blank" aria-label="TikTok"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.1a8.16 8.16 0 0 0 4.76 1.52v-3.4c0 .01-1-.07-1-1.53z"/></svg></a>{% endif %}
+      </div>
+    </div>
+  </div>
+
+  <div class="zaal-footer__bottom">
+    <span class="zaal-footer__copyright">&copy; Copyright {{ 'now' | date: '%Y' }} {{ section.settings.copyright_name }}</span>
+    <div class="zaal-footer__payments">
+      {{ 'mastercard' | payment_type_svg_tag }}
+      {{ 'visa' | payment_type_svg_tag }}
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Custom Footer",
+  "class": "zaal-custom-footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "col1_title",
+      "label": "Column 1 title",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Email",
+      "default": "info@zaalofficial.com"
+    },
+    {
+      "type": "text",
+      "id": "phone",
+      "label": "Phone",
+      "default": "+92(0)42 111-738-245"
+    },
+    {
+      "type": "header",
+      "content": "Column 2"
+    },
+    {
+      "type": "text",
+      "id": "col2_title",
+      "label": "Column 2 title",
+      "default": "Customer Care"
+    },
+    {
+      "type": "header",
+      "content": "Column 3"
+    },
+    {
+      "type": "text",
+      "id": "col3_title",
+      "label": "Column 3 title",
+      "default": "Information"
+    },
+    {
+      "type": "header",
+      "content": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "col4_title",
+      "label": "Column 4 title",
+      "default": "Newsletter Signup"
+    },
+    {
+      "type": "text",
+      "id": "newsletter_text",
+      "label": "Newsletter text",
+      "default": "Subscribe to our newsletter for exclusive updates"
+    },
+    {
+      "type": "header",
+      "content": "Social"
+    },
+    {
+      "type": "url",
+      "id": "facebook_url",
+      "label": "Facebook URL"
+    },
+    {
+      "type": "url",
+      "id": "instagram_url",
+      "label": "Instagram URL"
+    },
+    {
+      "type": "url",
+      "id": "youtube_url",
+      "label": "YouTube URL"
+    },
+    {
+      "type": "url",
+      "id": "tiktok_url",
+      "label": "TikTok URL"
+    },
+    {
+      "type": "header",
+      "content": "Copyright"
+    },
+    {
+      "type": "text",
+      "id": "copyright_name",
+      "label": "Brand name",
+      "default": "ZAAL"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "col2_link",
+      "name": "Customer Care Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "FAQs"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    },
+    {
+      "type": "col3_link",
+      "name": "Information Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "About Us"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Footer",
+      "blocks": [
+        { "type": "col2_link", "settings": { "label": "FAQs" } },
+        { "type": "col2_link", "settings": { "label": "Exchange & Return Policy" } },
+        { "type": "col2_link", "settings": { "label": "Contact Us" } },
+        { "type": "col3_link", "settings": { "label": "About Us" } },
+        { "type": "col3_link", "settings": { "label": "Privacy Policy" } },
+        { "type": "col3_link", "settings": { "label": "Payments" } },
+        { "type": "col3_link", "settings": { "label": "Store Locator" } },
+        { "type": "col3_link", "settings": { "label": "Fabric Glossary" } },
+        { "type": "col3_link", "settings": { "label": "Blogs" } }
+      ]
+    }
+  ]
+}
+{% endschema %}
