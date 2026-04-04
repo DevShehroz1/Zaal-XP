@@ -89,6 +89,10 @@
   border-bottom: 1px solid #ccc;
 }
 
+.product-tabs__item:last-child {
+  border-bottom: none;
+}
+
 .product-tabs__trigger {
   display: flex;
   align-items: center;
