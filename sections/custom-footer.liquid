@@ -1,25 +1,35 @@
 <style>
-  .zaal-footer { border-top: 1px solid #e0e0e0; padding: 48px 0 0; font-family: var(--font-body--family, sans-serif); }
+  .zaal-custom-footer,
+  .zaal-custom-footer .section-background,
+  .shopify-section-group-footer,
+  .shopify-section-group-footer .shopify-section,
+  .shopify-section-group-footer .section-background {
+    background: #000 !important;
+    background-color: #000 !important;
+    --color-background: #000 !important;
+    --color-foreground: #fff !important;
+  }
+  .zaal-footer { border-top: none; padding: 48px 0 0; font-family: var(--font-body--family, sans-serif); background: #000 !important; color: #fff; }
   .zaal-footer__inner { max-width: var(--page-width, 1400px); margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 1fr 1fr 1.2fr; gap: 40px; }
-  .zaal-footer__col-title { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 20px; color: var(--color-foreground, #1a1a1a); }
+  .zaal-footer__col-title { font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 20px; color: #fff; }
   .zaal-footer__links { list-style: none; padding: 0; margin: 0; }
   .zaal-footer__links li { margin-bottom: 10px; }
-  .zaal-footer__links a { text-decoration: none; color: var(--color-foreground, #1a1a1a); font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; transition: opacity 0.2s; }
+  .zaal-footer__links a { text-decoration: none; color: #ccc; font-size: 13px; letter-spacing: 0.04em; text-transform: uppercase; transition: opacity 0.2s; }
   .zaal-footer__links a:hover { opacity: 0.6; }
-  .zaal-footer__contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 13px; color: var(--color-foreground, #1a1a1a); }
+  .zaal-footer__contact-item { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 13px; color: #ccc; }
   .zaal-footer__contact-item svg { flex-shrink: 0; }
   .zaal-footer__contact-item a { text-decoration: none; color: inherit; }
-  .zaal-footer__newsletter-text { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 18px; color: var(--color-foreground, #1a1a1a); line-height: 1.5; }
-  .zaal-footer__form { display: flex; border: 1px solid #1a1a1a; overflow: hidden; }
-  .zaal-footer__input { flex: 1; border: none; padding: 12px 16px; font-size: 13px; font-family: inherit; outline: none; background: transparent; color: var(--color-foreground, #1a1a1a); }
+  .zaal-footer__newsletter-text { font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; margin: 0 0 18px; color: #ccc; line-height: 1.5; }
+  .zaal-footer__form { display: flex; border: 1px solid rgba(255,255,255,0.3); overflow: hidden; }
+  .zaal-footer__input { flex: 1; border: none; padding: 12px 16px; font-size: 13px; font-family: inherit; outline: none; background: transparent; color: #fff; }
   .zaal-footer__input::placeholder { color: #999; }
-  .zaal-footer__submit { background: #1a1a1a; color: #fff; border: none; padding: 12px 24px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit; transition: background 0.2s; }
-  .zaal-footer__submit:hover { background: #333; }
+  .zaal-footer__submit { background: #fff; color: #000; border: none; padding: 12px 24px; font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; font-family: inherit; transition: background 0.2s; }
+  .zaal-footer__submit:hover { background: #ccc; }
   .zaal-footer__social { display: flex; gap: 16px; margin-top: 20px; }
-  .zaal-footer__social a { color: var(--color-foreground, #1a1a1a); transition: opacity 0.2s; }
+  .zaal-footer__social a { color: #fff; transition: opacity 0.2s; }
   .zaal-footer__social a:hover { opacity: 0.6; }
-  .zaal-footer__bottom { max-width: var(--page-width, 1400px); margin: 0 auto; padding: 24px 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #e0e0e0; margin-top: 40px; }
-  .zaal-footer__copyright { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: var(--color-foreground, #555); }
+  .zaal-footer__bottom { max-width: var(--page-width, 1400px); margin: 0 auto; padding: 24px 24px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(255,255,255,0.15); margin-top: 40px; }
+  .zaal-footer__copyright { font-size: 11px; text-transform: uppercase; letter-spacing: 0.04em; color: #ccc; }
   .zaal-footer__payments { display: flex; gap: 8px; align-items: center; }
   @media (max-width: 749px) {
     .zaal-footer__inner { grid-template-columns: 1fr; gap: 32px; }
@@ -30,7 +40,7 @@
   }
 </style>
 
-<footer class="zaal-footer">
+<footer class="zaal-footer" style="background:#000 !important; color:#fff !important;">
   <div class="zaal-footer__inner">
     <div>
       <h4 class="zaal-footer__col-title">{{ section.settings.col1_title }}</h4>
@@ -93,6 +103,19 @@
     </div>
   </div>
 </footer>
+
+<script>
+  (function() {
+    var el = document.querySelector('.zaal-footer');
+    if (!el) return;
+    var parent = el.parentElement;
+    while (parent && parent !== document.body) {
+      parent.style.setProperty('background-color', '#000', 'important');
+      parent.style.setProperty('background', '#000', 'important');
+      parent = parent.parentElement;
+    }
+  })();
+</script>
 
 {% schema %}
 {
