@@ -126,40 +126,6 @@
         "padding_bottom": 0
       }
     },
-    "custom_slideshow_Uffjrf": {
-      "type": "custom-slideshow",
-      "blocks": {
-        "slide_i6XRq4": {
-          "type": "slide",
-          "settings": {
-            "image_desktop": "shopify://shop_images/Frame_1430102326.png",
-            "image_mobile": "shopify://shop_images/Frame_1430102327.jpg",
-            "link": "",
-            "heading": "",
-            "subheading": "",
-            "text_alignment": "center",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary"
-          }
-        }
-      },
-      "block_order": [
-        "slide_i6XRq4"
-      ],
-      "name": "Custom Slideshow",
-      "settings": {
-        "autoplay": true,
-        "autoplay_speed": 5,
-        "show_arrows": true,
-        "show_dots": true,
-        "overlay_opacity": 20,
-        "text_color": "#ffffff",
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "collection_1_APDiHQ": {
       "type": "collection-1",
       "blocks": {
@@ -167,28 +133,32 @@
           "type": "collection_block",
           "settings": {
             "collection": "stoles",
-            "title": ""
+            "title": "",
+            "custom_image": "shopify://shop_images/Stoles.png"
           }
         },
         "collection_block_xJMGtj": {
           "type": "collection_block",
           "settings": {
             "collection": "kaftan",
-            "title": ""
+            "title": "",
+            "custom_image": "shopify://shop_images/Kaftan.png"
           }
         },
         "collection_block_EmkAtg": {
           "type": "collection_block",
           "settings": {
             "collection": "2-piece",
-            "title": ""
+            "title": "",
+            "custom_image": "shopify://shop_images/Kaftan.png"
           }
         },
         "collection_block_mFmDWq": {
           "type": "collection_block",
           "settings": {
             "collection": "3-piece",
-            "title": ""
+            "title": "",
+            "custom_image": "shopify://shop_images/Complete_Sets.png"
           }
         }
       },
@@ -230,6 +200,40 @@
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 40
+      }
+    },
+    "custom_slideshow_Uffjrf": {
+      "type": "custom-slideshow",
+      "blocks": {
+        "slide_i6XRq4": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Frame_1430102326.png",
+            "image_mobile": "shopify://shop_images/Frame_1430102327.jpg",
+            "link": "",
+            "heading": "",
+            "subheading": "",
+            "text_alignment": "center",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "slide_i6XRq4"
+      ],
+      "name": "Custom Slideshow",
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "show_arrows": true,
+        "show_dots": true,
+        "overlay_opacity": 20,
+        "text_color": "#ffffff",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     }
   },
