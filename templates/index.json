@@ -133,7 +133,7 @@
       "settings": {
         "heading": "Explore Trending Categories",
         "subheading": "Explore Our Most Loved Pieces!",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "color_scheme": "",
         "image_ratio": "tall",
         "columns_desktop": 4,
@@ -157,7 +157,7 @@
         "badge_color": "#8b1a2b",
         "show_view_all": true,
         "view_all_text": "View All",
-        "section_width": "page-width",
+        "section_width": "full-width",
         "color_scheme": "",
         "padding_top": 40,
         "padding_bottom": 40
