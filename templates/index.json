@@ -126,6 +126,46 @@
         "padding_bottom": 0
       }
     },
+    "icon_bar_ybAqFg": {
+      "type": "icon-bar",
+      "blocks": {
+        "item_G9xHQz": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/transport_1.png",
+            "text": "Free Shipping"
+          }
+        },
+        "item_8JycCX": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/return.png",
+            "text": "No Questions Asked Exchange Policy"
+          }
+        },
+        "item_iAc3pd": {
+          "type": "item",
+          "settings": {
+            "icon": "shopify://shop_images/cash-on-delivery.png",
+            "text": "Safe COD Payments"
+          }
+        }
+      },
+      "block_order": [
+        "item_G9xHQz",
+        "item_8JycCX",
+        "item_iAc3pd"
+      ],
+      "name": "Icon Bar",
+      "settings": {
+        "background_color": "#f5f5f5",
+        "text_color": "#1a1a1a",
+        "divider_color": "#cccccc",
+        "icon_size": 38,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "collection_1_APDiHQ": {
       "type": "collection-1",
       "blocks": {
@@ -254,43 +294,6 @@
         "color_scheme": "",
         "padding_top": 0,
         "padding_bottom": 0
-      }
-    },
-    "icon_bar_ybAqFg": {
-      "type": "icon-bar",
-      "blocks": {
-        "item_G9xHQz": {
-          "type": "item",
-          "settings": {
-            "text": "Worldwide Shipping"
-          }
-        },
-        "item_8JycCX": {
-          "type": "item",
-          "settings": {
-            "text": "No Questions Asked Exchange Policy"
-          }
-        },
-        "item_iAc3pd": {
-          "type": "item",
-          "settings": {
-            "text": "Safe Payment"
-          }
-        }
-      },
-      "block_order": [
-        "item_G9xHQz",
-        "item_8JycCX",
-        "item_iAc3pd"
-      ],
-      "name": "Icon Bar",
-      "settings": {
-        "background_color": "#f5f5f5",
-        "text_color": "#1a1a1a",
-        "divider_color": "#cccccc",
-        "icon_size": 40,
-        "padding_top": 20,
-        "padding_bottom": 20
       }
     }
   },
