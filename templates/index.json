@@ -92,6 +92,74 @@
         "padding-block-end": 72
       }
     },
+    "custom_slideshow_7aHkY8": {
+      "type": "custom-slideshow",
+      "blocks": {
+        "slide_dkARc4": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Banner_1.png",
+            "image_mobile": "shopify://shop_images/Banner_1_mobile.jpg",
+            "link": "",
+            "heading": "",
+            "subheading": "",
+            "text_alignment": "center",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "slide_dkARc4"
+      ],
+      "name": "Custom Slideshow",
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "show_arrows": true,
+        "show_dots": true,
+        "overlay_opacity": 20,
+        "text_color": "#ffffff",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "custom_slideshow_Uffjrf": {
+      "type": "custom-slideshow",
+      "blocks": {
+        "slide_i6XRq4": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/Frame_1430102326.png",
+            "image_mobile": "shopify://shop_images/Frame_1430102327.jpg",
+            "link": "",
+            "heading": "",
+            "subheading": "",
+            "text_alignment": "center",
+            "button_label": "",
+            "button_link": "",
+            "button_style": "primary"
+          }
+        }
+      },
+      "block_order": [
+        "slide_i6XRq4"
+      ],
+      "name": "Custom Slideshow",
+      "settings": {
+        "autoplay": true,
+        "autoplay_speed": 5,
+        "show_arrows": true,
+        "show_dots": true,
+        "overlay_opacity": 20,
+        "text_color": "#ffffff",
+        "color_scheme": "",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
     "collection_1_APDiHQ": {
       "type": "collection-1",
       "blocks": {
@@ -167,7 +235,9 @@
   },
   "order": [
     "hero_jVaWmY",
+    "custom_slideshow_7aHkY8",
     "collection_1_APDiHQ",
-    "featured_collection_1_UQQNNy"
+    "featured_collection_1_UQQNNy",
+    "custom_slideshow_Uffjrf"
   ]
 }
