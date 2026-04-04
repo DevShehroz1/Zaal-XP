@@ -33,55 +33,98 @@
       </div>
     {% endif %}
 
-    <div class="collection-1__grid">
-      {% for block in section.blocks %}
-        {% assign collection = block.settings.collection %}
-        <a
-          class="collection-1__card"
-          href="{{ collection.url | default: '#' }}"
-          {{ block.shopify_attributes }}
-        >
-          <div class="collection-1__image-wrapper">
-            {% if block.settings.custom_image != blank %}
-              {{
-                block.settings.custom_image
-                | image_url: width: 800
-                | image_tag:
-                  class: 'collection-1__image',
-                  loading: 'lazy',
-                  widths: '400,600,800',
-                  sizes: '(max-width: 749px) 50vw, 25vw'
-              }}
-            {% elsif collection != blank and collection.image != blank %}
-              {{
-                collection.image
-                | image_url: width: 800
-                | image_tag:
-                  class: 'collection-1__image',
-                  loading: 'lazy',
-                  widths: '400,600,800',
-                  sizes: '(max-width: 749px) 50vw, 25vw'
-              }}
-            {% else %}
-              {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'collection-1__placeholder' }}
-            {% endif %}
-          </div>
+    <div class="collection-1__grid-wrapper" data-collection1-carousel>
+      <div class="collection-1__grid" data-collection1-track>
+        {% for block in section.blocks %}
+          {% assign collection = block.settings.collection %}
+          <a
+            class="collection-1__card"
+            href="{{ collection.url | default: '#' }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="collection-1__image-wrapper">
+              {% if block.settings.custom_image != blank %}
+                {{
+                  block.settings.custom_image
+                  | image_url: width: 800
+                  | image_tag:
+                    class: 'collection-1__image',
+                    loading: 'lazy',
+                    widths: '400,600,800',
+                    sizes: '(max-width: 749px) 50vw, 25vw'
+                }}
+              {% elsif collection != blank and collection.image != blank %}
+                {{
+                  collection.image
+                  | image_url: width: 800
+                  | image_tag:
+                    class: 'collection-1__image',
+                    loading: 'lazy',
+                    widths: '400,600,800',
+                    sizes: '(max-width: 749px) 50vw, 25vw'
+                }}
+              {% else %}
+                {{ 'collection-' | append: forloop.index | placeholder_svg_tag: 'collection-1__placeholder' }}
+              {% endif %}
+            </div>
 
-          <div class="collection-1__card-info">
-            <span class="collection-1__card-title">
-              {{ collection.title | default: block.settings.title | default: 'Collection' }}
-            </span>
-            <span class="collection-1__card-arrow">
-              <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" width="24" height="24">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/>
-              </svg>
-            </span>
-          </div>
-        </a>
-      {% endfor %}
+            <div class="collection-1__card-info">
+              <span class="collection-1__card-title">
+                {{ collection.title | default: block.settings.title | default: 'Collection' }}
+              </span>
+              <span class="collection-1__card-arrow">
+                <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="none" width="24" height="24">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.25 10h11.5m0 0-4-4m4 4-4 4"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+
+      <button class="collection-1__arrow collection-1__arrow--prev" data-collection1-prev aria-label="Previous">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="collection-1__arrow collection-1__arrow--next" data-collection1-next aria-label="Next">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 </div>
+
+<script>
+  (function() {
+    document.querySelectorAll('[data-collection1-carousel]').forEach(function(wrapper) {
+      var track = wrapper.querySelector('[data-collection1-track]');
+      var prevBtn = wrapper.querySelector('[data-collection1-prev]');
+      var nextBtn = wrapper.querySelector('[data-collection1-next]');
+      if (!track || !prevBtn || !nextBtn) return;
+
+      function getScrollAmount() {
+        var card = track.querySelector('.collection-1__card');
+        if (!card) return 300;
+        return card.offsetWidth + parseInt(getComputedStyle(track).gap || '16', 10);
+      }
+
+      function updateArrows() {
+        prevBtn.disabled = track.scrollLeft <= 5;
+        nextBtn.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 5;
+      }
+
+      prevBtn.addEventListener('click', function() {
+        track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+      });
+
+      nextBtn.addEventListener('click', function() {
+        track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+      });
+
+      track.addEventListener('scroll', updateArrows);
+      updateArrows();
+      window.addEventListener('resize', updateArrows);
+    });
+  })();
+</script>
 
 {% schema %}
 {
