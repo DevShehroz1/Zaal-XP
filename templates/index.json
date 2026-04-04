@@ -134,7 +134,7 @@
           "settings": {
             "collection": "stoles",
             "title": "",
-            "custom_image": "shopify://shop_images/Stoles.png"
+            "custom_image": "shopify://shop_images/Stoles_1.png"
           }
         },
         "collection_block_xJMGtj": {
@@ -142,7 +142,7 @@
           "settings": {
             "collection": "kaftan",
             "title": "",
-            "custom_image": "shopify://shop_images/Kaftan.png"
+            "custom_image": "shopify://shop_images/Kaftan_1.png"
           }
         },
         "collection_block_EmkAtg": {
@@ -150,7 +150,7 @@
           "settings": {
             "collection": "2-piece",
             "title": "",
-            "custom_image": "shopify://shop_images/Kaftan.png"
+            "custom_image": "shopify://shop_images/Co-ord_Sets_1.png"
           }
         },
         "collection_block_mFmDWq": {
@@ -158,7 +158,23 @@
           "settings": {
             "collection": "3-piece",
             "title": "",
-            "custom_image": "shopify://shop_images/Complete_Sets.png"
+            "custom_image": "shopify://shop_images/Complete_Sets_1.png"
+          }
+        },
+        "collection_block_qdyXpp": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "jacket-sets",
+            "title": "",
+            "custom_image": "shopify://shop_images/Jacket_Sets_1.png"
+          }
+        },
+        "collection_block_mVRHNp": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "shawl",
+            "title": "",
+            "custom_image": "shopify://shop_images/Shawl_1.png"
           }
         }
       },
@@ -166,7 +182,9 @@
         "collection_block_9n6h4b",
         "collection_block_xJMGtj",
         "collection_block_EmkAtg",
-        "collection_block_mFmDWq"
+        "collection_block_mFmDWq",
+        "collection_block_qdyXpp",
+        "collection_block_mVRHNp"
       ],
       "name": "Collection 1",
       "settings": {
