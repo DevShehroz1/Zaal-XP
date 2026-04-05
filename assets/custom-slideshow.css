@@ -55,44 +55,22 @@
   }
 }
 
-/* Overlay */
+/* Overlay — pinned to bottom center */
 .custom-slideshow__overlay {
   position: absolute;
-  inset: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  flex-direction: column;
-  align-items: var(--cs-text-align, center);
   justify-content: center;
-  padding: 40px;
-  text-align: var(--cs-text-align, center);
+  padding: 0 40px 40px;
   z-index: 2;
 }
 
-.custom-slideshow__overlay::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, var(--cs-overlay-opacity, 0));
-  z-index: -1;
-}
-
-.custom-slideshow__heading {
-  font-family: var(--font-heading--family, serif);
-  font-size: clamp(28px, 5vw, 56px);
-  font-weight: 400;
-  line-height: 1.1;
-  margin: 0 0 12px;
-  color: var(--cs-text-color, #fff);
-}
-
-.custom-slideshow__subheading {
-  font-family: var(--font-body--family, sans-serif);
-  font-size: clamp(14px, 1.5vw, 18px);
-  font-weight: 400;
-  line-height: 1.4;
-  margin: 0 0 24px;
-  color: var(--cs-text-color, #fff);
-  opacity: 0.9;
+.custom-slideshow__buttons {
+  display: flex;
+  gap: 12px;
+  align-items: center;
 }
 
 .custom-slideshow__btn {
@@ -105,26 +83,12 @@
   text-decoration: none;
   padding: 14px 36px;
   transition: background 0.2s ease, color 0.2s ease;
-}
-
-.custom-slideshow__btn--primary {
-  background: #fff;
-  color: #000;
-  border: 2px solid #fff;
-}
-
-.custom-slideshow__btn--primary:hover {
-  background: transparent;
-  color: #fff;
-}
-
-.custom-slideshow__btn--outline {
   background: transparent;
   color: #fff;
   border: 2px solid #fff;
 }
 
-.custom-slideshow__btn--outline:hover {
+.custom-slideshow__btn:hover {
   background: #fff;
   color: #000;
 }
@@ -205,7 +169,22 @@
 
 @media (max-width: 749px) {
   .custom-slideshow__overlay {
-    padding: 24px;
+    padding: 0 16px 20px;
+  }
+  .custom-slideshow__buttons {
+    gap: 8px;
+  }
+  .custom-slideshow__btn {
+    font-size: 11px;
+    padding: 10px 18px;
+    letter-spacing: 0.06em;
+    background: #fff;
+    color: #000;
+    border: 2px solid #fff;
+  }
+  .custom-slideshow__btn:hover {
+    background: #fff;
+    color: #000;
   }
   .custom-slideshow__arrows {
     display: none;
