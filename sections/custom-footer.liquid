@@ -99,8 +99,9 @@
   <div class="zaal-footer__bottom">
     <span class="zaal-footer__copyright">&copy; Copyright {{ 'now' | date: '%Y' }} {{ section.settings.copyright_name }}</span>
     <div class="zaal-footer__payments">
-      {{ 'mastercard' | payment_type_svg_tag }}
-      {{ 'visa' | payment_type_svg_tag }}
+      {%- for type in shop.enabled_payment_types -%}
+        {{ type | payment_type_svg_tag: class: 'zaal-footer__payment-icon' }}
+      {%- endfor -%}
     </div>
   </div>
 </footer>
