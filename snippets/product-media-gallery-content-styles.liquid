@@ -59,6 +59,13 @@
     grid-area: auto;
   }
 
+  /* Hide dots/counter on mobile when thumbnails are present */
+  @media screen and (max-width: 749px) {
+    media-gallery:has(.media-gallery__mobile-thumbnails) slideshow-controls:not(.media-gallery__mobile-thumbnails) {
+      display: none;
+    }
+  }
+
   .media-gallery__mobile-thumbnails {
     grid-area: auto;
     padding-block: 0.5rem;
