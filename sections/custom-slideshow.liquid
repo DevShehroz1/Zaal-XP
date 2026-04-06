@@ -73,34 +73,16 @@
 
           {% if block.settings.link != blank %}</a>{% endif %}
 
-          {% liquid
-            assign btn1_label = block.settings.button_1_label
-            assign btn1_link = block.settings.button_1_link
-            assign btn2_label = block.settings.button_2_label
-            assign btn2_link = block.settings.button_2_link
-          %}
-          {% if btn1_label != blank or btn2_label != blank %}
-            <div class="custom-slideshow__overlay">
-              <div class="custom-slideshow__buttons">
-                {% if btn1_label != blank and btn1_link != blank %}
-                  <a
-                    href="{{ btn1_link }}"
-                    class="custom-slideshow__btn custom-slideshow__btn--outline"
-                  >
-                    {{ btn1_label }}
-                  </a>
-                {% endif %}
-                {% if btn2_label != blank and btn2_link != blank %}
-                  <a
-                    href="{{ btn2_link }}"
-                    class="custom-slideshow__btn custom-slideshow__btn--outline"
-                  >
-                    {{ btn2_label }}
-                  </a>
-                {% endif %}
-              </div>
+          <div class="custom-slideshow__overlay">
+            <div class="custom-slideshow__buttons">
+              <a
+                href="/collections/all"
+                class="custom-slideshow__btn custom-slideshow__btn--outline"
+              >
+                Shop Now
+              </a>
             </div>
-          {% endif %}
+          </div>
 
         </div>
       {% endfor %}
