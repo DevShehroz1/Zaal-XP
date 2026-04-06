@@ -31,6 +31,21 @@
   </div>
 </div>
 
+<script>
+  (function() {
+    if (window.innerWidth >= 750) return;
+    var items = document.querySelectorAll('.icon-bar__item');
+    if (items.length < 2) return;
+    var current = 0;
+    items[0].classList.add('icon-bar__item--active');
+    setInterval(function() {
+      items[current].classList.remove('icon-bar__item--active');
+      current = (current + 1) % items.length;
+      items[current].classList.add('icon-bar__item--active');
+    }, 3000);
+  })();
+</script>
+
 {% schema %}
 {
   "name": "Icon Bar",
