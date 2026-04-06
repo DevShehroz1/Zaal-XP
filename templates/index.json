@@ -101,12 +101,10 @@
             "image_desktop": "shopify://shop_images/Banner_1.png",
             "image_mobile": "shopify://shop_images/Banner_1_mobile.jpg",
             "link": "",
-            "heading": "",
-            "subheading": "",
-            "text_alignment": "center",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary"
+            "button_1_label": "Shop Now",
+            "button_1_link": "",
+            "button_2_label": "",
+            "button_2_link": ""
           }
         }
       },
@@ -271,12 +269,10 @@
             "image_desktop": "shopify://shop_images/Frame_1430102326.png",
             "image_mobile": "shopify://shop_images/Frame_1430102327.jpg",
             "link": "",
-            "heading": "",
-            "subheading": "",
-            "text_alignment": "center",
-            "button_label": "",
-            "button_link": "",
-            "button_style": "primary"
+            "button_1_label": "Shop Now",
+            "button_1_link": "",
+            "button_2_label": "",
+            "button_2_link": ""
           }
         }
       },
