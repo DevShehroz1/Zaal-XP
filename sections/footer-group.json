@@ -14,19 +14,72 @@
     "custom_footer": {
       "type": "custom-footer",
       "blocks": {
-        "col2_faqs": { "type": "col2_link", "settings": { "label": "FAQs", "url": "" } },
-        "col2_exchange": { "type": "col2_link", "settings": { "label": "Exchange & Return Policy", "url": "" } },
-        "col2_contact": { "type": "col2_link", "settings": { "label": "Contact Us", "url": "" } },
-        "col3_about": { "type": "col3_link", "settings": { "label": "About Us", "url": "" } },
-        "col3_privacy": { "type": "col3_link", "settings": { "label": "Privacy Policy", "url": "" } },
-        "col3_payments": { "type": "col3_link", "settings": { "label": "Payments", "url": "" } },
-        "col3_store": { "type": "col3_link", "settings": { "label": "Store Locator", "url": "" } },
-        "col3_fabric": { "type": "col3_link", "settings": { "label": "Fabric Glossary", "url": "" } },
-        "col3_blogs": { "type": "col3_link", "settings": { "label": "Blogs", "url": "" } }
+        "col2_faqs": {
+          "type": "col2_link",
+          "settings": {
+            "label": "FAQs",
+            "url": "shopify://pages/faq"
+          }
+        },
+        "col2_exchange": {
+          "type": "col2_link",
+          "settings": {
+            "label": "Exchange & Return Policy",
+            "url": "shopify://pages/return-exchange-policy"
+          }
+        },
+        "col2_contact": {
+          "type": "col2_link",
+          "settings": {
+            "label": "Contact Us",
+            "url": "shopify://pages/contact"
+          }
+        },
+        "col3_about": {
+          "type": "col3_link",
+          "settings": {
+            "label": "CO ORD SETS",
+            "url": "shopify://collections/2-piece"
+          }
+        },
+        "col3_privacy": {
+          "type": "col3_link",
+          "settings": {
+            "label": "JACKET SET",
+            "url": "shopify://collections/jacket-sets"
+          }
+        },
+        "col3_payments": {
+          "type": "col3_link",
+          "settings": {
+            "label": "KAFTAN",
+            "url": "shopify://collections/kaftan"
+          }
+        },
+        "col3_store": {
+          "type": "col3_link",
+          "settings": {
+            "label": "SHAWLS",
+            "url": "shopify://collections/shawl"
+          }
+        },
+        "col3_fabric": {
+          "type": "col3_link",
+          "settings": {
+            "label": "STOLES",
+            "url": "shopify://collections/stoles"
+          }
+        }
       },
       "block_order": [
-        "col2_faqs", "col2_exchange", "col2_contact",
-        "col3_about", "col3_privacy", "col3_payments", "col3_store", "col3_fabric", "col3_blogs"
+        "col2_faqs",
+        "col2_exchange",
+        "col2_contact",
+        "col3_about",
+        "col3_privacy",
+        "col3_payments",
+        "col3_store",
+        "col3_fabric"
       ],
       "settings": {
         "col1_title": "Contact Us",
