@@ -722,9 +722,19 @@
           class="menu-drawer__featured-content"
           style="--menu-drawer-animation-index: {{ linklist.links.size | plus: 1 }};"
         >
-          {% if top_level_featured_products_collection.products_count > 0 %}
-            <h3 class="menu-drawer__featured-heading">Best Sellers</h3>
-          {% endif %}
+          <div class="menu-drawer__featured-header">
+            {% if top_level_featured_products_collection.products_count > 0 %}
+              <h3 class="menu-drawer__featured-heading">Best Sellers</h3>
+            {% endif %}
+            <div class="menu-drawer__featured-nav">
+              <button class="menu-drawer__featured-arrow menu-drawer__featured-arrow--prev" aria-label="Previous" type="button">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+              <button class="menu-drawer__featured-arrow menu-drawer__featured-arrow--next" aria-label="Next" type="button">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
           <ul class="menu-drawer__featured-content-list menu-drawer__animated-element list-unstyled">
             {% if top_level_featured_collections.size > 0 %}
               {%- for collection in top_level_featured_collections limit: max_featured_items -%}
@@ -763,6 +773,23 @@
   </details>
 </header-drawer>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const prevBtn = document.querySelector('.menu-drawer__featured-arrow--prev');
+    const nextBtn = document.querySelector('.menu-drawer__featured-arrow--next');
+    const list = document.querySelector('.menu-drawer__featured-content-list');
+    if (prevBtn && nextBtn && list) {
+      const scrollAmount = 150;
+      prevBtn.addEventListener('click', function () {
+        list.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', function () {
+        list.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+      });
+    }
+  });
+</script>
+
 {% stylesheet %}
   .header__icon--menu {
     position: initial;
@@ -790,15 +817,47 @@
     border-top: 1px solid var(--color-border);
   }
 
+  .menu-drawer__featured-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: var(--drawer-padding);
+    padding-block-end: var(--padding-xs);
+  }
+
   .menu-drawer__featured-heading {
     font-size: 1.4rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin: 0;
-    padding-inline: var(--drawer-padding);
-    padding-block-end: var(--padding-xs);
+    padding: 0;
     color: var(--color-foreground);
+  }
+
+  .menu-drawer__featured-nav {
+    display: flex;
+    gap: 0.4rem;
+  }
+
+  .menu-drawer__featured-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid var(--color-border);
+    background: transparent;
+    color: var(--color-foreground);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s, color 0.2s;
+  }
+
+  .menu-drawer__featured-arrow:hover {
+    background-color: var(--color-foreground);
+    color: var(--color-background);
   }
 
   .menu-drawer__featured-content--childlist {
@@ -810,6 +869,13 @@
     gap: 0.75em;
     overflow-x: auto;
     padding-block-end: var(--padding-sm);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    scroll-behavior: smooth;
+  }
+
+  .menu-drawer__featured-content-list::-webkit-scrollbar {
+    display: none;
   }
 
   .menu-drawer__featured-content-list-item {
