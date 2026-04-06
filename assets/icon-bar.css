@@ -64,9 +64,19 @@
     transition: opacity 0.5s ease;
   }
 
+  .icon-bar__item:first-of-type {
+    opacity: 1;
+    position: relative;
+  }
+
   .icon-bar__item.icon-bar__item--active {
     opacity: 1;
     position: relative;
+  }
+
+  .icon-bar__item.icon-bar__item--hidden {
+    opacity: 0;
+    position: absolute;
   }
 
   .icon-bar__divider {

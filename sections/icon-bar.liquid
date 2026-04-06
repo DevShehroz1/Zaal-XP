@@ -40,7 +40,9 @@
     items[0].classList.add('icon-bar__item--active');
     setInterval(function() {
       items[current].classList.remove('icon-bar__item--active');
+      items[current].classList.add('icon-bar__item--hidden');
       current = (current + 1) % items.length;
+      items[current].classList.remove('icon-bar__item--hidden');
       items[current].classList.add('icon-bar__item--active');
     }, 3000);
   })();
