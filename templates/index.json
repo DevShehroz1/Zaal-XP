@@ -103,8 +103,8 @@
             "link": "",
             "button_1_label": "Shop Now",
             "button_1_link": "shopify://collections/3-piece",
-            "button_2_label": ",",
-            "button_2_link": "shopify://products/crimson-regalia"
+            "button_2_label": "Explorer",
+            "button_2_link": "shopify://collections/all"
           }
         }
       },
@@ -117,6 +117,8 @@
         "autoplay_speed": 5,
         "show_arrows": true,
         "show_dots": true,
+        "button_vertical": "bottom",
+        "button_horizontal": "center",
         "overlay_opacity": 20,
         "text_color": "#ffffff",
         "color_scheme": "",
@@ -269,7 +271,7 @@
             "image_desktop": "shopify://shop_images/Frame_1430102326.png",
             "image_mobile": "shopify://shop_images/Frame_1430102327.jpg",
             "link": "",
-            "button_1_label": "Shop Now",
+            "button_1_label": "",
             "button_1_link": "",
             "button_2_label": "",
             "button_2_link": ""
@@ -285,6 +287,8 @@
         "autoplay_speed": 5,
         "show_arrows": true,
         "show_dots": true,
+        "button_vertical": "bottom",
+        "button_horizontal": "center",
         "overlay_opacity": 20,
         "text_color": "#ffffff",
         "color_scheme": "",
