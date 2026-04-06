@@ -73,22 +73,28 @@
 
           {% if block.settings.link != blank %}</a>{% endif %}
 
-          <div class="custom-slideshow__overlay custom-slideshow__overlay--{{ section.settings.button_vertical }} custom-slideshow__overlay--{{ section.settings.button_horizontal }}">
-            <div class="custom-slideshow__buttons">
-              <a
-                href="/collections/all"
-                class="custom-slideshow__btn custom-slideshow__btn--solid"
-              >
-                Shop Now
-              </a>
-              <a
-                href="/collections/all"
-                class="custom-slideshow__btn custom-slideshow__btn--outline"
-              >
-                Explore
-              </a>
+          {% if block.settings.button_1_label != blank or block.settings.button_2_label != blank %}
+            <div class="custom-slideshow__overlay custom-slideshow__overlay--{{ section.settings.button_vertical }} custom-slideshow__overlay--{{ section.settings.button_horizontal }}">
+              <div class="custom-slideshow__buttons">
+                {% if block.settings.button_1_label != blank %}
+                  <a
+                    href="{{ block.settings.button_1_link | default: '#' }}"
+                    class="custom-slideshow__btn custom-slideshow__btn--solid"
+                  >
+                    {{ block.settings.button_1_label }}
+                  </a>
+                {% endif %}
+                {% if block.settings.button_2_label != blank %}
+                  <a
+                    href="{{ block.settings.button_2_link | default: '#' }}"
+                    class="custom-slideshow__btn custom-slideshow__btn--outline"
+                  >
+                    {{ block.settings.button_2_label }}
+                  </a>
+                {% endif %}
+              </div>
             </div>
-          </div>
+          {% endif %}
 
         </div>
       {% endfor %}
