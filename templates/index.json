@@ -102,9 +102,9 @@
             "image_mobile": "shopify://shop_images/Banner_1_mobile.jpg",
             "link": "",
             "button_1_label": "Shop Now",
-            "button_1_link": "",
-            "button_2_label": "",
-            "button_2_link": ""
+            "button_1_link": "shopify://collections/3-piece",
+            "button_2_label": ",",
+            "button_2_link": "shopify://products/crimson-regalia"
           }
         }
       },
