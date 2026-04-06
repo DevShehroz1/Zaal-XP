@@ -73,7 +73,7 @@
 
           {% if block.settings.link != blank %}</a>{% endif %}
 
-          <div class="custom-slideshow__overlay">
+          <div class="custom-slideshow__overlay custom-slideshow__overlay--{{ section.settings.button_vertical }} custom-slideshow__overlay--{{ section.settings.button_horizontal }}">
             <div class="custom-slideshow__buttons">
               <a
                 href="/collections/all"
@@ -234,6 +234,31 @@
       "id": "show_dots",
       "label": "Show dots",
       "default": true
+    },
+    {
+      "type": "header",
+      "content": "Button placement"
+    },
+    {
+      "type": "select",
+      "id": "button_vertical",
+      "label": "Vertical position",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "bottom"
+    },
+    {
+      "type": "select",
+      "id": "button_horizontal",
+      "label": "Horizontal position",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
     },
     {
       "type": "header",
