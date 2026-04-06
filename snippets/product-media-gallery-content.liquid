@@ -425,6 +425,17 @@
             thumbnail_radius: block_settings.thumbnail_radius
           -%}
         {% endif %}
+
+        {%- render 'slideshow-controls',
+          class: 'desktop:hidden media-gallery__mobile-thumbnails',
+          style: 'thumbnails',
+          item_count: sorted_media.size,
+          thumbnails: sorted_media,
+          controls_on_media: false,
+          pagination_position: 'center',
+          aspect_ratio: block_settings.aspect_ratio,
+          thumbnail_radius: block_settings.thumbnail_radius
+        -%}
       {% endcapture %}
     {% endif %}
 
