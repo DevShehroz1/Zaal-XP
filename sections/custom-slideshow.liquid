@@ -73,23 +73,29 @@
 
           {% if block.settings.link != blank %}</a>{% endif %}
 
-          {% if block.settings.button_1_label != blank or block.settings.button_2_label != blank %}
+          {% liquid
+            assign btn1_label = block.settings.button_1_label
+            assign btn1_link = block.settings.button_1_link
+            assign btn2_label = block.settings.button_2_label
+            assign btn2_link = block.settings.button_2_link
+          %}
+          {% if btn1_label != blank or btn2_label != blank %}
             <div class="custom-slideshow__overlay">
               <div class="custom-slideshow__buttons">
-                {% if block.settings.button_1_label != blank and block.settings.button_1_link != blank %}
+                {% if btn1_label != blank and btn1_link != blank %}
                   <a
-                    href="{{ block.settings.button_1_link }}"
+                    href="{{ btn1_link }}"
                     class="custom-slideshow__btn custom-slideshow__btn--outline"
                   >
-                    {{ block.settings.button_1_label }}
+                    {{ btn1_label }}
                   </a>
                 {% endif %}
-                {% if block.settings.button_2_label != blank and block.settings.button_2_link != blank %}
+                {% if btn2_label != blank and btn2_link != blank %}
                   <a
-                    href="{{ block.settings.button_2_link }}"
+                    href="{{ btn2_link }}"
                     class="custom-slideshow__btn custom-slideshow__btn--outline"
                   >
-                    {{ block.settings.button_2_label }}
+                    {{ btn2_label }}
                   </a>
                 {% endif %}
               </div>
@@ -325,7 +331,8 @@
         {
           "type": "text",
           "id": "button_1_label",
-          "label": "Button 1 label"
+          "label": "Button 1 label",
+          "default": "Shop Now"
         },
         {
           "type": "url",
