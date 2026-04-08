@@ -8,20 +8,22 @@
 -%}
 
 {% unless product_resource == blank %}
-  <!-- Size Chart Link -->
-  <div class="size-chart-wrapper" style="margin-bottom: 12px;">
-    <a href="javascript:void(0)" class="size-chart-link" onclick="document.getElementById('size-chart-modal').style.display='flex'" style="font-size: 14px; color: var(--color-foreground); text-decoration: underline; cursor: pointer;">
-      Size Chart
-    </a>
-  </div>
-
-  <!-- Size Chart Modal -->
-  <div id="size-chart-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;" onclick="if(event.target===this)this.style.display='none'">
-    <div style="position:relative; background:#fff; max-width:90%; max-height:90vh; border-radius:8px; overflow:auto;">
-      <button onclick="document.getElementById('size-chart-modal').style.display='none'" style="position:absolute; top:10px; right:10px; background:#fff; border:none; font-size:24px; cursor:pointer; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1; line-height:1;" aria-label="Close size chart">&times;</button>
-      <img src="https://cdn.shopify.com/s/files/1/0812/7669/8868/files/WhatsApp_Image_2026-04-08_at_15.30.40.jpg?v=1775644576" alt="Size Chart" style="display:block; width:100%; height:auto;">
+  {% if block.settings.show_size_chart %}
+    <!-- Size Chart Link -->
+    <div class="size-chart-wrapper" style="margin: 0 0 2px 0;">
+      <a href="javascript:void(0)" class="size-chart-link" onclick="document.getElementById('size-chart-modal').style.display='flex'" style="font-size: 14px; color: var(--color-foreground); text-decoration: underline; cursor: pointer;">
+        Size Chart
+      </a>
     </div>
-  </div>
+
+    <!-- Size Chart Modal -->
+    <div id="size-chart-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:9999; justify-content:center; align-items:center;" onclick="if(event.target===this)this.style.display='none'">
+      <div style="position:relative; background:#fff; max-width:600px; max-height:90vh; border-radius:8px; overflow:auto;">
+        <button onclick="document.getElementById('size-chart-modal').style.display='none'" style="position:absolute; top:10px; right:10px; background:#fff; border:none; font-size:24px; cursor:pointer; width:36px; height:36px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.15); z-index:1; line-height:1;" aria-label="Close size chart">&times;</button>
+        <img src="https://cdn.shopify.com/s/files/1/0812/7669/8868/files/WhatsApp_Image_2026-04-08_at_15.30.40.jpg?v=1775644576" alt="Size Chart" style="display:block; width:100%; height:auto;">
+      </div>
+    </div>
+  {% endif %}
 
   {% render 'variant-main-picker', product_resource: product_resource, section: section, product: product %}
 {% endunless %}
@@ -66,6 +68,16 @@
       "id": "alignment",
       "label": "t:settings.alignment",
       "default": "left"
+    },
+    {
+      "type": "header",
+      "content": "Size chart"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_size_chart",
+      "label": "Show size chart",
+      "default": true
     },
     {
       "type": "header",
