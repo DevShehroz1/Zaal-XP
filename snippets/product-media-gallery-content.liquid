@@ -334,35 +334,33 @@
     {{ 'product-apparel-1' | placeholder_svg_tag: 'product-media-gallery__placeholder-image' }}
   </div>
 {% else %}
-  <media-gallery
-    class="
-      spacing-style
-      sticky-content
-      {% if media_presentation == 'grid' %}
-        media-gallery--{{ block_settings.media_columns }}-column
-        {% if block_settings.media_columns == "two" and block_settings.large_first_image%}media-gallery--large-first-image{% endif %}
-      {% endif %}
-      media-gallery--{{ media_presentation }}
-      {% if block_settings.slideshow_mobile_controls_style == 'hint' %}
-        media-gallery--hint
-      {% endif %}
-      {% if block_settings.extend_media %}
-        media-gallery--extend
-      {% endif %}
-    "
-    style="{% render 'spacing-style', settings: block_settings %} --thumbnail-width: {{ block_settings.thumbnail_width }}px; --media-radius: {{ block_settings.media_radius }}px;{% if block_settings.icons_style contains 'large' %} --slideshow-icon-padding: 0px;{% endif %}--image-gap: {{ block_settings.image_gap }}px;{% unless block_settings.aspect_ratio == 'adapt' %} --gallery-aspect-ratio: {{ block_settings.aspect_ratio }};{% endunless %}"
-    data-presentation="{{ media_presentation }}"
-    {{ block_shopify_attributes }}
-  >
+  <div class="product-gallery-badge-wrapper">
     {%- assign _pdp_variant = selected_product.selected_or_first_available_variant -%}
     {%- if _pdp_variant.compare_at_price > _pdp_variant.price -%}
       {%- assign _pdp_discount = _pdp_variant.compare_at_price | minus: _pdp_variant.price -%}
       {%- assign _pdp_percent = _pdp_discount | times: 100.0 | divided_by: _pdp_variant.compare_at_price | round -%}
-      <div class="product-page-sale-badge product-badges__badge product-badges__badge--rectangle color-{{ settings.badge_sale_color_scheme }}"
-           style="--badge-border-radius: 2px; --badge-font-family: var(--font-{{ settings.badge_font_family }}--family); --badge-font-weight: var(--font-{{ settings.badge_font_family }}--weight); --badge-text-transform: {{ settings.badge_text_transform }};">
-        -{{ _pdp_percent }}%
-      </div>
+      <div class="product-page-sale-badge">-{{ _pdp_percent }}%</div>
     {%- endif -%}
+    <media-gallery
+      class="
+        spacing-style
+        sticky-content
+        {% if media_presentation == 'grid' %}
+          media-gallery--{{ block_settings.media_columns }}-column
+          {% if block_settings.media_columns == "two" and block_settings.large_first_image%}media-gallery--large-first-image{% endif %}
+        {% endif %}
+        media-gallery--{{ media_presentation }}
+        {% if block_settings.slideshow_mobile_controls_style == 'hint' %}
+          media-gallery--hint
+        {% endif %}
+        {% if block_settings.extend_media %}
+          media-gallery--extend
+        {% endif %}
+      "
+      style="{% render 'spacing-style', settings: block_settings %} --thumbnail-width: {{ block_settings.thumbnail_width }}px; --media-radius: {{ block_settings.media_radius }}px;{% if block_settings.icons_style contains 'large' %} --slideshow-icon-padding: 0px;{% endif %}--image-gap: {{ block_settings.image_gap }}px;{% unless block_settings.aspect_ratio == 'adapt' %} --gallery-aspect-ratio: {{ block_settings.aspect_ratio }};{% endunless %}"
+      data-presentation="{{ media_presentation }}"
+      {{ block_shopify_attributes }}
+    >
     {% capture slides %}
       {% for media in sorted_media %}
         {% capture children %}
@@ -655,13 +653,14 @@
         window.ProductModel.loadShopifyXR();
       </script>
     {%- endif -%}
-  </media-gallery>
+    </media-gallery>
+  </div>
 {% endif %}
 
 {% render 'product-media-gallery-content-styles' %}
 
 {% stylesheet %}
-  media-gallery {
+  .product-gallery-badge-wrapper {
     position: relative;
   }
 
@@ -670,6 +669,16 @@
     top: 12px;
     right: 12px;
     z-index: 10;
+    background: #FF0000;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 10px;
+    border-radius: 2px;
+    line-height: 1;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    pointer-events: none;
   }
 
   .dialog-thumbnails-list-container {
@@ -1080,4 +1089,5 @@
     content-visibility: visible;
   }
 {% endstylesheet %}
+
 
