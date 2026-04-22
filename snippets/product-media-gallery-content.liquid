@@ -354,6 +354,15 @@
     data-presentation="{{ media_presentation }}"
     {{ block_shopify_attributes }}
   >
+    {%- assign _pdp_variant = selected_product.selected_or_first_available_variant -%}
+    {%- if _pdp_variant.compare_at_price > _pdp_variant.price -%}
+      {%- assign _pdp_discount = _pdp_variant.compare_at_price | minus: _pdp_variant.price -%}
+      {%- assign _pdp_percent = _pdp_discount | times: 100.0 | divided_by: _pdp_variant.compare_at_price | round -%}
+      <div class="product-page-sale-badge product-badges__badge product-badges__badge--rectangle color-{{ settings.badge_sale_color_scheme }}"
+           style="--badge-border-radius: 2px; --badge-font-family: var(--font-{{ settings.badge_font_family }}--family); --badge-font-weight: var(--font-{{ settings.badge_font_family }}--weight); --badge-text-transform: {{ settings.badge_text_transform }};">
+        -{{ _pdp_percent }}%
+      </div>
+    {%- endif -%}
     {% capture slides %}
       {% for media in sorted_media %}
         {% capture children %}
@@ -652,6 +661,17 @@
 {% render 'product-media-gallery-content-styles' %}
 
 {% stylesheet %}
+  media-gallery {
+    position: relative;
+  }
+
+  .product-page-sale-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+  }
+
   .dialog-thumbnails-list-container {
     position: fixed;
     width: 100%;
@@ -1060,3 +1080,4 @@
     content-visibility: visible;
   }
 {% endstylesheet %}
+
