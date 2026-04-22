@@ -339,7 +339,7 @@
     {%- if _pdp_variant.compare_at_price > _pdp_variant.price -%}
       {%- assign _pdp_discount = _pdp_variant.compare_at_price | minus: _pdp_variant.price -%}
       {%- assign _pdp_percent = _pdp_discount | times: 100.0 | divided_by: _pdp_variant.compare_at_price | round -%}
-      <div class="product-page-sale-badge">-{{ _pdp_percent }}%</div>
+      <div class="product-page-sale-badge" style="position:absolute;top:12px;right:12px;z-index:10;background:#FF0000;color:#fff;font-size:12px;font-weight:600;padding:6px 10px;border-radius:2px;line-height:1;letter-spacing:.04em;text-transform:uppercase;pointer-events:none;">-{{ _pdp_percent }}%</div>
     {%- endif -%}
     <media-gallery
       class="
@@ -1089,5 +1089,6 @@
     content-visibility: visible;
   }
 {% endstylesheet %}
+
 
 
