@@ -32,8 +32,8 @@
       {% if collection != blank and collection.products.size > 0 %}
         {% for product in collection.products limit: products_to_show %}
           {% assign selected_variant = product.selected_or_first_available_variant %}
-          {% assign compare_at_price = selected_variant.compare_at_price %}
-          {% assign price = selected_variant.price %}
+          {% assign compare_at_price = product.compare_at_price %}
+          {% assign price = product.price %}
 
           {% assign on_sale = false %}
           {% if compare_at_price > price %}
@@ -60,8 +60,8 @@
                 {% endif %}
 
                 {% if on_sale and section.settings.show_sale_badge %}
-                  <span class="fc1-card__badge">
-                    {{ save_percent }}% OFF
+                  <span class="fc1-card__badge" style="background:#FF0000;color:#fff;border-radius:2px;">
+                    -{{ save_percent }}%
                   </span>
                 {% endif %}
 
@@ -334,4 +334,5 @@
   ]
 }
 {% endschema %}
+
 
