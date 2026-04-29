@@ -1,0 +1,66 @@
+{%- liquid
+  assign free_shipping_threshold = 500000
+  assign cart_total = cart.total_price
+  assign remaining = free_shipping_threshold | minus: cart_total
+
+  if remaining <= 0
+    assign progress_percent = 100
+  else
+    assign progress_percent = cart_total | times: 100 | divided_by: free_shipping_threshold
+  endif
+
+  if remaining > 0
+    assign remaining_price = remaining | money
+  endif
+-%}
+
+<div class="free-shipping-bar">
+  {%- if remaining <= 0 -%}
+    <p class="free-shipping-bar__message">
+      You've unlocked <strong>free shipping!</strong>
+    </p>
+  {%- else -%}
+    <p class="free-shipping-bar__message">
+      Only <strong>{{ remaining_price }}</strong> away from free shipping
+    </p>
+  {%- endif -%}
+  <div class="free-shipping-bar__track" role="progressbar" aria-valuenow="{{ progress_percent }}" aria-valuemin="0" aria-valuemax="100">
+    <div class="free-shipping-bar__fill" style="width: {{ progress_percent }}%;"></div>
+  </div>
+</div>
+
+{% stylesheet %}
+  .free-shipping-bar {
+    padding: 1.2rem 1.6rem;
+    margin: 0 var(--drawer-padding, 1.6rem) 0.8rem;
+    background-color: var(--color-background);
+    border-radius: 1rem;
+    box-shadow: 0 1px 6px rgb(0 0 0 / 0.07);
+  }
+
+  .free-shipping-bar__message {
+    margin: 0 0 0.8rem;
+    font-size: 1.4rem;
+    color: var(--color-foreground);
+    line-height: 1.4;
+  }
+
+  .free-shipping-bar__message strong {
+    font-weight: 600;
+  }
+
+  .free-shipping-bar__track {
+    height: 4px;
+    border-radius: 99px;
+    background-color: rgb(var(--color-foreground-rgb) / 0.12);
+    overflow: hidden;
+  }
+
+  .free-shipping-bar__fill {
+    height: 100%;
+    border-radius: 99px;
+    background-color: #E8B96A;
+    transition: width 0.4s ease;
+    max-width: 100%;
+  }
+{% endstylesheet %}
