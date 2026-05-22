@@ -253,7 +253,7 @@
         "gap": 16,
         "show_sale_badge": true,
         "show_product_type": true,
-        "badge_color": "#FF0000",
+        "badge_color": "#ff0000",
         "show_view_all": true,
         "view_all_text": "View All",
         "section_width": "full-width",
@@ -306,4 +306,3 @@
     "custom_slideshow_Uffjrf"
   ]
 }
-
