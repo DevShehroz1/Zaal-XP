@@ -17,7 +17,20 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "Free Shippinhg On Order Above 4999",
+            "text": "Orders placed after 21st May will be delivered after Eid",
+            "link": "",
+            "font": "var(--font-subheading--family)",
+            "font_size": "0.75rem",
+            "weight": "",
+            "letter_spacing": "normal",
+            "case": "none"
+          },
+          "blocks": {}
+        },
+        "announcement_YhRmXw": {
+          "type": "_announcement",
+          "settings": {
+            "text": "Free Shipping On Order Above 4999",
             "link": "",
             "font": "var(--font-subheading--family)",
             "font_size": "0.75rem",
@@ -29,7 +42,8 @@
         }
       },
       "block_order": [
-        "announcement_BxgCk9"
+        "announcement_BxgCk9",
+        "announcement_YhRmXw"
       ],
       "name": "t:names.announcement_bar",
       "settings": {
