@@ -4213,3 +4213,6 @@ product-recommendations:has([data-has-recommendations='false']) {
 h2 {
   font-size: 36px !important;
 }
+.featured-collection-1 {
+  padding-top: 0 !important;
+}
