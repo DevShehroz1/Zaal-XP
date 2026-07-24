@@ -4216,3 +4216,8 @@ h2 {
 .featured-collection-1 {
   padding-top: 0 !important;
 }
+p.announcement-bar__text {
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
