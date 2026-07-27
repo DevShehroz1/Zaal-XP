@@ -8,7 +8,7 @@
 -%}
 
 {% unless product_resource == blank %}
-{% if block.settings.show_size_chart and product_resource.metafields.custom.size_chart != blank %}
+{% if block.settings.show_size_chart %}
     <!-- Size Chart Link -->
     <div class="size-chart-wrapper" style="margin: 0 0 2px 0;">
       <a href="javascript:void(0)" class="size-chart-link" onclick="document.getElementById('size-chart-modal').style.display='flex'" style="font-size: 14px; color: var(--color-foreground); text-decoration: underline; cursor: pointer;">
