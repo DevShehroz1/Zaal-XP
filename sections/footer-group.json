@@ -38,15 +38,15 @@
         "col3_about": {
           "type": "col3_link",
           "settings": {
-            "label": "CO ORD SETS",
-            "url": "shopify://collections/naqsh-volume-1"
+            "label": "Summer Collection",
+            "url": "shopify://collections/summer-collection"
           }
         },
         "col3_privacy": {
           "type": "col3_link",
           "settings": {
-            "label": "JACKET SET",
-            "url": "shopify://collections/jacket-sets"
+            "label": "Complete Sets",
+            "url": "shopify://collections/3-piece"
           }
         },
         "col3_payments": {
