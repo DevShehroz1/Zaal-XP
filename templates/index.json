@@ -98,13 +98,24 @@
         "slide_dkARc4": {
           "type": "slide",
           "settings": {
-            "image_desktop": "shopify://shop_images/banner.jpg",
-            "image_mobile": "shopify://shop_images/Mobile_banner.jpg",
+            "image_desktop": "shopify://shop_images/banner_4.jpg",
+            "image_mobile": "shopify://shop_images/Mobile_banner_4.jpg",
             "link": "shopify://collections/3-piece",
             "button_1_label": "",
             "button_1_link": "",
             "button_2_label": "",
             "button_2_link": "shopify://collections/all"
+          }
+        },
+        "slide_4W8qxg": {
+          "type": "slide",
+          "disabled": true,
+          "settings": {
+            "link": "",
+            "button_1_label": "Shop Now",
+            "button_1_link": "",
+            "button_2_label": "",
+            "button_2_link": ""
           }
         },
         "slide_7T3mgd": {
@@ -122,6 +133,7 @@
       },
       "block_order": [
         "slide_dkARc4",
+        "slide_4W8qxg",
         "slide_7T3mgd"
       ],
       "name": "Custom Slideshow",
