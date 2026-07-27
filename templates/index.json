@@ -110,8 +110,8 @@
         "slide_7T3mgd": {
           "type": "slide",
           "settings": {
-            "image_desktop": "shopify://shop_images/Banner_1.png",
-            "image_mobile": "shopify://shop_images/Banner_1_mobile.jpg",
+            "image_desktop": "shopify://shop_images/banner_2.jpg",
+            "image_mobile": "shopify://shop_images/Mobile_banner_2.jpg",
             "link": "",
             "button_1_label": "Shop Now",
             "button_1_link": "shopify://collections",
