@@ -17,8 +17,15 @@
         "col2_faqs": {
           "type": "col2_link",
           "settings": {
-            "label": "FAQs",
-            "url": "shopify://pages/faq"
+            "label": "About Us",
+            "url": "shopify://pages/about-us"
+          }
+        },
+        "col2_contact": {
+          "type": "col2_link",
+          "settings": {
+            "label": "Contact Us",
+            "url": "shopify://pages/contact"
           }
         },
         "col2_exchange": {
@@ -28,11 +35,11 @@
             "url": "shopify://pages/return-exchange-policy"
           }
         },
-        "col2_contact": {
+        "col2_link_JNaWa7": {
           "type": "col2_link",
           "settings": {
-            "label": "Contact Us",
-            "url": "shopify://pages/contact"
+            "label": "FAQs",
+            "url": "shopify://pages/faq"
           }
         },
         "col3_about": {
@@ -73,8 +80,9 @@
       },
       "block_order": [
         "col2_faqs",
-        "col2_exchange",
         "col2_contact",
+        "col2_exchange",
+        "col2_link_JNaWa7",
         "col3_about",
         "col3_privacy",
         "col3_payments",
