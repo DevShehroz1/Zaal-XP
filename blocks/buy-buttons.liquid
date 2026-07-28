@@ -267,13 +267,13 @@
     <div style="padding:0 0 12px;font-size:13px;line-height:1.6;">{{ closest.product.description }}</div>
   </details>
   {% endif %}
-  <details style="border-bottom:1px solid #ccc;">
+  {% comment %} <details style="border-bottom:1px solid #ccc;">
     <summary style="display:flex;align-items:center;justify-content:space-between;width:100%;padding:12px 0;background:none;border:none;cursor:pointer;text-align:left;font-family:var(--font-body--family,sans-serif);font-size:14px;font-weight:600;color:var(--color-foreground,#1a1a1a);line-height:1.4;list-style:none;letter-spacing:0.02em;">
       <span>Care Instruction</span>
       <span style="font-size:16px;font-weight:300;">+</span>
     </summary>
     <div style="padding:0 0 12px;font-size:13px;line-height:1.6;"><p>Do not machine wash, do not bleach, do not tumble dry.</p></div>
-  </details>
+  </details> {% endcomment %}
 </div>
 
 {% if block_settings.show_pickup_availability %}
