@@ -95,6 +95,18 @@
     "custom_slideshow_7aHkY8": {
       "type": "custom-slideshow",
       "blocks": {
+        "slide_mdQAh6": {
+          "type": "slide",
+          "settings": {
+            "image_desktop": "shopify://shop_images/banner_5.jpg",
+            "image_mobile": "shopify://shop_images/Mobile_banner_5.jpg",
+            "link": "",
+            "button_1_label": "Shop Now",
+            "button_1_link": "shopify://collections/all",
+            "button_2_label": "",
+            "button_2_link": ""
+          }
+        },
         "slide_dkARc4": {
           "type": "slide",
           "settings": {
@@ -121,6 +133,7 @@
         }
       },
       "block_order": [
+        "slide_mdQAh6",
         "slide_dkARc4",
         "slide_7T3mgd"
       ],
@@ -301,6 +314,9 @@
             "show_sample_reviews": true,
             "reviews_selection": "all",
             "products": [],
+            "filter_pinned": false,
+            "filter_featured": false,
+            "filter_custom_tags": "",
             "star_rating": "all",
             "show_review_media": true,
             "display_order": "media_first",
