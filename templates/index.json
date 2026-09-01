@@ -97,6 +97,7 @@
       "blocks": {
         "slide_mdQAh6": {
           "type": "slide",
+          "disabled": true,
           "settings": {
             "image_desktop": "shopify://shop_images/banner_6_e58452bf-71db-4c4d-8146-fb779add1010.jpg",
             "image_mobile": "shopify://shop_images/Mobile_banner_6.jpg",
