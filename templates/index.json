@@ -97,11 +97,10 @@
       "blocks": {
         "slide_mdQAh6": {
           "type": "slide",
-          "disabled": true,
           "settings": {
-            "image_desktop": "shopify://shop_images/banner_6_e58452bf-71db-4c4d-8146-fb779add1010.jpg",
-            "image_mobile": "shopify://shop_images/Mobile_banner_6.jpg",
-            "link": "",
+            "image_desktop": "shopify://shop_images/END_OF_SEASON_SALE_FLAT_33_SALE_WEB_BANNER.png",
+            "image_mobile": "shopify://shop_images/END_OF_SEASON_SALE_FLAT_33_SALE_MOB_BANNER_1.png",
+            "link": "shopify://collections/beyond-the-color",
             "button_1_label": "Shop Now",
             "button_1_link": "shopify://collections/all",
             "button_2_label": "",
