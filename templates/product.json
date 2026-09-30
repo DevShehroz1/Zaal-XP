@@ -68,19 +68,6 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "ez_bundles_discounts_bundle_promotion_YHLm8b": {
-              "type": "shopify://apps/ez-bundles-discounts/blocks/bundle-promotion/f569e784-b0ec-437e-a4bc-70c66e94410d",
-              "settings": {
-                "product": "{{closest.product}}",
-                "btn_bg_color": "#202223",
-                "btn_text_color": "#ffffff",
-                "btn_border_radius": 4,
-                "block_bg_color": "#ffffff",
-                "block_border_color": "#e1e3e5",
-                "block_border_radius": 8,
-                "block_padding": 16
-              }
-            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -192,6 +179,13 @@
               },
               "blocks": {}
             },
+            "ez_bundles_discounts_app_block_Nq7wyK": {
+              "type": "shopify://apps/ez-bundles-discounts/blocks/app-block/f569e784-b0ec-437e-a4bc-70c66e94410d",
+              "settings": {
+                "product": "{{product}}",
+                "debug_mode": false
+              }
+            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -283,9 +277,9 @@
             }
           },
           "block_order": [
-            "ez_bundles_discounts_bundle_promotion_YHLm8b",
             "group_icgrde",
             "divider_VJhene",
+            "ez_bundles_discounts_app_block_Nq7wyK",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "text_aEtTtq",
