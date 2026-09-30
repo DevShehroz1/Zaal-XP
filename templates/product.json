@@ -68,6 +68,13 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "ez_bundles_discounts_app_block_f4G39n": {
+              "type": "shopify://apps/ez-bundles-discounts/blocks/app-block/f569e784-b0ec-437e-a4bc-70c66e94410d",
+              "settings": {
+                "product": "{{closest.product}}",
+                "debug_mode": false
+              }
+            },
             "group_icgrde": {
               "type": "group",
               "name": "Header",
@@ -179,13 +186,6 @@
               },
               "blocks": {}
             },
-            "ez_bundles_discounts_app_block_Nq7wyK": {
-              "type": "shopify://apps/ez-bundles-discounts/blocks/app-block/f569e784-b0ec-437e-a4bc-70c66e94410d",
-              "settings": {
-                "product": "{{product}}",
-                "debug_mode": false
-              }
-            },
             "variant_picker_R3rGDr": {
               "type": "variant-picker",
               "settings": {
@@ -277,9 +277,9 @@
             }
           },
           "block_order": [
+            "ez_bundles_discounts_app_block_f4G39n",
             "group_icgrde",
             "divider_VJhene",
-            "ez_bundles_discounts_app_block_Nq7wyK",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
             "text_aEtTtq",
